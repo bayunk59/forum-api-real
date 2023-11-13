@@ -3,6 +3,7 @@ const CommentRepository = require("../../../Domains/comments/CommentRepository")
 const GetThreadUseCase = require("../GetThreadUseCase");
 const Thread = require("../../../Domains/threads/entities/Thread");
 const Comment = require("../../../Domains/comments/entities/Comment");
+const DeleteComment = require("../../../Domains/comments/entities/DeleteComment");
 
 describe("GetThreadUseCase", () => {
   it("should throw error when thread is not found", async () => {
@@ -39,7 +40,7 @@ describe("GetThreadUseCase", () => {
         content: "sebuah comment",
         isDelete: false,
       }),
-      new Comment({
+      new DeleteComment({
         id: "comment-123",
         username: "dicoding",
         date: new Date().toISOString(),
