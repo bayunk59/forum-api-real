@@ -40,7 +40,7 @@ describe("GetThreadUseCase", () => {
         content: "sebuah comment",
         isDelete: false,
       }),
-      new DeleteComment({
+      new Comment({
         id: "comment-123",
         username: "dicoding",
         date: new Date().toISOString(),
@@ -69,6 +69,9 @@ describe("GetThreadUseCase", () => {
     expect(thread.comments[0].id).toEqual("comment-123");
     expect(thread.comments[0].username).toEqual("dicoding");
     expect(thread.comments[0].content).toEqual("sebuah comment");
+    expect(thread.comments[1].id).toEqual("comment-123");
+    expect(thread.comments[1].username).toEqual("dicoding");
+    expect(thread.comments[1].content).toEqual("sebuah comment");
 
     // validate mock function call
     expect(mockThreadRepository.getThreadById).toBeCalledWith("thread-123");
